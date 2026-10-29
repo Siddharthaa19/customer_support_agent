@@ -1,0 +1,143 @@
+export const MOCK_ORDERS = {
+  'ORD-8492': {
+    id: 'ORD-8492',
+    item: 'Sony WH-1000XM5 Wireless Headphones (Black)',
+    amount: '$349.99',
+    date: 'Oct 27, 2026',
+    status: 'Shipped',
+    statusType: 'in-transit',
+    progressStep: 3, // 1: Placed, 2: Processing, 3: Shipped, 4: Delivered
+    carrier: 'FedEx Priority',
+    trackingNumber: 'FDX-902847192',
+    estDelivery: 'Tomorrow by 4:00 PM',
+    deliveryAddress: '742 Evergreen Terrace, Springfield, OR',
+    timeline: [
+      { step: 'Order Placed', time: 'Oct 27, 09:30 AM', done: true },
+      { step: 'Packed & Processed', time: 'Oct 27, 04:15 PM', done: true },
+      { step: 'Shipped via FedEx', time: 'Oct 28, 06:45 AM', done: true, current: true },
+      { step: 'Out for Delivery', time: 'Estimated Oct 30', done: false },
+      { step: 'Delivered', time: 'Pending', done: false },
+    ],
+  },
+  'ORD-1024': {
+    id: 'ORD-1024',
+    item: 'Apple MacBook Air 13" M3 (Midnight, 16GB, 512GB)',
+    amount: '$1,299.00',
+    date: 'Oct 24, 2026',
+    status: 'Delivered',
+    statusType: 'delivered',
+    progressStep: 4,
+    carrier: 'UPS Express Saver',
+    trackingNumber: '1Z999AA10123456784',
+    estDelivery: 'Delivered Oct 28, at 2:15 PM',
+    signedBy: 'Front Desk / Concierge',
+    deliveryAddress: '450 Market Street, Suite 900, San Francisco, CA',
+    timeline: [
+      { step: 'Order Placed', time: 'Oct 24, 11:20 AM', done: true },
+      { step: 'Packed & Processed', time: 'Oct 25, 08:00 AM', done: true },
+      { step: 'Shipped via UPS', time: 'Oct 26, 01:30 PM', done: true },
+      { step: 'Out for Delivery', time: 'Oct 28, 08:30 AM', done: true },
+      { step: 'Delivered', time: 'Oct 28, 02:15 PM', done: true, current: true },
+    ],
+  },
+  'ORD-5501': {
+    id: 'ORD-5501',
+    item: 'Nike Air Zoom Pegasus 40 Running Shoes (Size 10.5)',
+    amount: '$130.00',
+    date: 'Today, 08:15 AM',
+    status: 'Processing',
+    statusType: 'processing',
+    progressStep: 2,
+    carrier: 'DHL SmartMail',
+    trackingNumber: 'DHL-88392104',
+    estDelivery: 'Estimated Nov 2, 2026',
+    deliveryAddress: '124 Pine Cone Way, Austin, TX',
+    timeline: [
+      { step: 'Order Placed', time: 'Today, 08:15 AM', done: true },
+      { step: 'Processing in Warehouse', time: 'Today, 10:45 AM', done: true, current: true },
+      { step: 'Shipped', time: 'Estimated Oct 30', done: false },
+      { step: 'Out for Delivery', time: 'Estimated Nov 1', done: false },
+      { step: 'Delivered', time: 'Estimated Nov 2', done: false },
+    ],
+  },
+  'ORD-3320': {
+    id: 'ORD-3320',
+    item: 'Logitech MX Master 3S Wireless Performance Mouse',
+    amount: '$99.99',
+    date: 'Oct 28, 2026',
+    status: 'Out for Delivery',
+    statusType: 'out-for-delivery',
+    progressStep: 3.5,
+    carrier: 'Amazon Logistics',
+    trackingNumber: 'TBA-9482019482',
+    estDelivery: 'Today by 8:00 PM',
+    deliveryAddress: '880 Broadway, Apt 4B, New York, NY',
+    timeline: [
+      { step: 'Order Placed', time: 'Oct 28, 02:10 PM', done: true },
+      { step: 'Processed', time: 'Oct 28, 07:45 PM', done: true },
+      { step: 'Shipped', time: 'Oct 29, 04:00 AM', done: true },
+      { step: 'Out for Delivery', time: 'Oct 29, 09:15 AM', done: true, current: true },
+      { step: 'Delivered', time: 'Expected Today', done: false },
+    ],
+  },
+};
+
+export const QUICK_ACTIONS = [
+  {
+    id: 'track',
+    title: 'Track My Order',
+    description: 'Check shipment status & delivery time',
+    icon: 'Package',
+    prompt: 'I want to track my order',
+    color: 'blue',
+  },
+  {
+    id: 'refund',
+    title: 'Refund & Returns',
+    description: 'Policy, exchange & return label',
+    icon: 'RotateCcw',
+    prompt: 'How do I return an item or get a refund?',
+    color: 'emerald',
+  },
+  {
+    id: 'payment',
+    title: 'Payment Issues',
+    description: 'Declined cards & billing questions',
+    icon: 'CreditCard',
+    prompt: 'I am having issues with my payment',
+    color: 'amber',
+  },
+  {
+    id: 'support',
+    title: 'Talk to Support',
+    description: 'Connect with a human specialist',
+    icon: 'Headphones',
+    prompt: 'Can I speak with a human support agent?',
+    color: 'purple',
+  },
+];
+
+export const DEMO_PROMPTS = [
+  { label: '📦 Track ORD-8492', query: 'Track order ORD-8492' },
+  { label: '📦 Track ORD-1024', query: 'Where is ORD-1024?' },
+  { label: '🔄 30-Day Return Policy', query: 'What is your refund and return policy?' },
+  { label: '💳 Card Declined Help', query: 'My card was declined at checkout' },
+  { label: '🔑 Reset Account Password', query: 'How do I reset my account password?' },
+  { label: '🎧 Human Specialist', query: 'I need to speak to a real person' },
+];
+
+export const REFUND_POLICY = {
+  windowDays: 30,
+  conditions: [
+    'Items must be unworn, undamaged, and with original tags/packaging.',
+    'Proof of purchase or Order ID is required.',
+    'Digital downloads and personalized gift items are non-returnable.',
+  ],
+  steps: [
+    { title: 'Submit Return Request', desc: 'Provide your Order ID and select the item you wish to return.' },
+    { title: 'Download Prepaid Label', desc: 'Instantly download your free return shipping barcode or QR code.' },
+    { title: 'Drop Off Package', desc: 'Hand over to any authorized UPS, FedEx, or post drop-off location.' },
+    { title: 'Receive Refund', desc: 'Credited to your original payment method in 3–5 business days.' },
+  ],
+};
+
